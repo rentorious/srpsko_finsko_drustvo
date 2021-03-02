@@ -1,0 +1,33 @@
+/* Article */
+
+header {
+  text-align: center;
+  margin-bottom: 2em !important;
+}
+
+main {
+  color: white;
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  font-size: 1.25em;
+}
+
+main .footer {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+main .footer a {
+  margin-right: 0.5em;
+}
+
+@media (max-width: 610px) {
+  header {
+    font-size: 1em;
+  }
+
+  main {
+    font-size: 1.4em;
+  }
+}
