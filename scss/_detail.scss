@@ -1,0 +1,13 @@
+@import "mixins";
+
+.detail {
+  @include flexCenter(column);
+  color: $light-color;
+  width: 90%;
+  font-size: 1.25rem;
+  margin-top: 2rem;
+
+  p {
+    margin-bottom: 0.5rem;
+  }
+}

@@ -1,0 +1,54 @@
+@import "mixins";
+
+nav {
+  @include flexCenter(row);
+  margin-bottom: 2em;
+  min-height: 150px;
+
+  .navigation {
+    @include flexCenter(row);
+    justify-content: flex-end;
+    flex: 0 1 60%;
+
+    .navItem {
+      display: block;
+      margin: 1rem;
+    }
+  }
+
+  #brand {
+    flex: 0 1 40%;
+  }
+
+  // TODO: fix toggle
+  .toggle {
+    display: none;
+  }
+
+  @include small {
+    @include flexCenter(column);
+  }
+
+  @include mobile {
+    flex-direction: row;
+    align-items: center;
+
+    #brand {
+      flex: 0 1 85%;
+    }
+
+    .toggle {
+      display: block;
+    }
+
+    .navigation {
+      @include flexCenter(column);
+      flex: 0 1 15%;
+      color: $light-color;
+
+      a.navItem {
+        display: none;
+      }
+    }
+  }
+}

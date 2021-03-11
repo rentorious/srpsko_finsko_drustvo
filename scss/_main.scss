@@ -1,0 +1,12 @@
+@import "mixins";
+
+main {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 1em;
+  margin: 0 auto;
+
+  @include small {
+    grid-template-columns: 1fr;
+  }
+}

@@ -5,14 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Finci</title>
-    <!-- fontawesome -->
-    <link rel="stylesheet" href="fontawesome/all.min.css" />
-    <!-- fonts -->
-    <link rel="stylesheet" href="fonts/style.css" />
     <!-- style -->
-    <link rel="stylesheet" href="style.css" />
-
-    <link href="https://cdn.lineicons.com/2.0/LineIcons.css" rel="stylesheet" />
+    <link rel="stylesheet" href="./scss/main.css" />
   </head>
   <body>
     <!-- language picker -->
@@ -39,7 +33,7 @@
       </div>
       <div class="navigation">
         <a href="#" class="navItem active">Naslovna</a>
-        <a href="#" class="navItem">O nama</a>
+        <a href="about.html" class="navItem">O nama</a>
         <a href="#" class="navItem">Postanite član</a>
         <a href="#" class="navItem">Pišite nam</a>
         <div class="toggle">
@@ -52,12 +46,15 @@
       <!-- card -->
       <div class="card">
         <div class="image">
-          <img
-            src="img/glasanje_small.png"
-            alt="slika za skupstinu drustva"
-            class="responsive"
-          />
+          <a href="detail.html">
+            <img
+              src="img/glasanje_small.png"
+              alt="slika za skupstinu drustva"
+              class="responsive"
+            />
+          </a>
         </div>
+
         <div class="description">
           <div class="date-text">04.05.2020</div>
           <h1>Poziv na redovnu godisnju skupstinu drustva</h1>
@@ -69,8 +66,8 @@
             >
           </div>
           <div class="footer">
-            <a href="#"><i class="lni lni-printer"></i></a>
-            <a href="#"><i class="lni lni-share"></i></a>
+            <a href="#"><i class="fas fa-share-alt"></i></a>
+            <a href="#"><i class="fas fa-print"></i></a>
           </div>
         </div>
       </div>
@@ -81,11 +78,13 @@
       <!-- card -->
       <div class="card">
         <div class="image">
-          <img
-            src="img/1.jpg"
-            alt="slika za skupstinu drustva"
-            class="responsive"
-          />
+          <a href="detail.html">
+            <img
+              src="img/1.jpg"
+              alt="slika za skupstinu drustva"
+              class="responsive"
+            />
+          </a>
         </div>
         <div class="description">
           <div class="date date-text">04.05.2020</div>
@@ -223,12 +222,17 @@
             >
           </div>
           <div class="footer">
-            <a href="#"><i class="fas fa-share-alt"></i></a>
-            <a href="#"><i class="fas fa-print"></i></a>
+            <a href="#"><i class="fab fa-share-alt"></i></a>
+            <a href="#"><i class="fab fa-print"></i></a>
           </div>
         </div>
       </div>
     </main>
+    <!-- fontawesome -->
+    <script
+      src="https://kit.fontawesome.com/e7477977c9.js"
+      crossorigin="anonymous"
+    ></script>
     <script src="script.js"></script>
   </body>
 </html>

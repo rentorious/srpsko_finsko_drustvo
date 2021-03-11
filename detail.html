@@ -6,13 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Finci</title>
 
-    <!-- fonts -->
-    <link rel="stylesheet" href="fonts/style.css" />
-    <!-- style -->
-    <link rel="stylesheet" href="style.css" />
-    <link rel="stylesheet" href="detail.css" />
-
-    <link href="https://cdn.lineicons.com/2.0/LineIcons.css" rel="stylesheet" />
+    <link rel="stylesheet" href="scss/main.css" />
   </head>
   <body>
     <!-- language picker -->
@@ -38,8 +32,8 @@
         <a href="index.html"><img class="responsive" src="img/banner.png" /></a>
       </div>
       <div class="navigation">
-        <a href="#" class="navItem">Naslovna</a>
-        <a href="#" class="navItem">O nama</a>
+        <a href="index.html" class="navItem">Naslovna</a>
+        <a href="about.html" class="navItem">O nama</a>
         <a href="#" class="navItem">Postanite član</a>
         <a href="#" class="navItem">Pišite nam</a>
         <div class="toggle">
@@ -47,9 +41,10 @@
         </div>
       </div>
     </nav>
+    <!-- Header -->
     <header>
+      <!-- card -->
       <div class="card">
-        <!-- card -->
         <div class="image">
           <img
             src="img/glasanje_small.png"
@@ -57,13 +52,18 @@
             class="responsive"
           />
         </div>
-        <div class="title description">
-          <h1>Poziv na redovnu godisnju skupstinu drustva</h1>
+        <div class="description">
           <div class="date-text">04.05.2020</div>
+          <h1>Poziv na redovnu godisnju skupstinu drustva</h1>
+
+          <div class="footer">
+            <a href="#"><i class="fas fa-share-alt"></i></a>
+            <a href="#"><i class="fas fa-print"></i></a>
+          </div>
         </div>
       </div>
     </header>
-    <main>
+    <main class="detail">
       <p>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam non
         tortor nec ante porttitor sollicitudin. Etiam ultricies est nisl, sit
@@ -117,11 +117,12 @@
         nulla. Fusce interdum orci libero, et imperdiet massa viverra vitae.
         Curabitur nec lacus rhoncus, dictum justo at, finibus nunc.
       </p>
-      <div class="footer">
-        <a href="#"><i class="fas fa-share-alt"></i></a>
-        <a href="#"><i class="fas fa-print"></i></a>
-      </div>
     </main>
+    <!-- fontawesome -->
+    <script
+      src="https://kit.fontawesome.com/e7477977c9.js"
+      crossorigin="anonymous"
+    ></script>
     <script src="script.js"></script>
   </body>
 </html>

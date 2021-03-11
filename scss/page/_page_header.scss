@@ -1,0 +1,7 @@
+.page-header {
+  color: $accent-color;
+
+  // @include flexCenter(column);
+
+  grid-area: header;
+}

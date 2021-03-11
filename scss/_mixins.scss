@@ -1,0 +1,27 @@
+@mixin flexCenter($direction) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: $direction;
+}
+@function weight($weight-name) {
+  @return map-get($font-weights, $weight-name);
+}
+
+@mixin mobile {
+  @media (max-width: $mobile) {
+    @content;
+  }
+}
+
+@mixin small {
+  @media (max-width: $small) {
+    @content;
+  }
+}
+
+@mixin medium {
+  @media (max-width: $medium) {
+    @content;
+  }
+}
