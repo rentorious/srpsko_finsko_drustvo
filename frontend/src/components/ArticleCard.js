@@ -5,7 +5,7 @@ export default function ArticleCard(props) {
   return (
     <div className="card">
       <div className="image">
-        <a href="detail.html">
+        <a href={`/articles/${article.slug}`}>
           <img src={article.image} alt={article.alt} className="responsive" />
         </a>
       </div>
@@ -19,10 +19,10 @@ export default function ArticleCard(props) {
           </a>
         </div>
         <div className="footer">
-          <a href="#">
+          <a href="/share">
             <i className="fas fa-share-alt"></i>
           </a>
-          <a href="#">
+          <a href="/print">
             <i className="fas fa-print"></i>
           </a>
         </div>

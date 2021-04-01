@@ -1,0 +1,79 @@
+@import "config";
+@import "variables";
+@import "text_colors";
+@import "language_picker";
+@import "nav";
+@import "card";
+@import "mixins";
+@import "header";
+@import "main";
+@import "detail";
+
+@import "./page/main";
+body {
+  background-image: linear-gradient($bg-color-top, $bg-color-bot);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+#root {
+  font-size: 16px;
+
+  width: 65%;
+  margin: 0 auto;
+  font-family: "Nunito", sans-serif;
+
+  @include medium {
+    width: 90%;
+  }
+}
+a {
+  color: white;
+  text-decoration: none;
+}
+
+p {
+  margin-bottom: 1em;
+}
+
+a.active {
+  font-weight: weight(medium);
+}
+
+a:hover {
+  font-weight: weight(bold);
+}
+
+h1 {
+  font-size: 3rem;
+}
+h2 {
+  font-size: 2.4rem;
+}
+
+h3 {
+  font-size: 1.85rem;
+}
+
+h4 {
+  font-size: 1.7rem;
+}
+
+h5 {
+  font-size: 1.5rem;
+}
+
+h6 {
+  font-size: 1.25rem;
+}
+
+/* Image  */
+img.responsive {
+  max-width: 100%;
+  height: auto;
+}
+
+ol,
+ul {
+  padding: 2rem;
+}

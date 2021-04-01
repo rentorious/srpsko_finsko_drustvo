@@ -1,0 +1,32 @@
+{
+  "name": "srpsko_finsko_drustvo",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "Vebsajt srpsko finskog drustva",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon --watch backend --exec node --experimental-modules backend/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rentorious/srpsko_finsko_drustvo.git"
+  },
+  "keywords": [
+    "srbija",
+    "finska",
+    "srpsko",
+    "finsko",
+    "drustvo",
+    "udruzenje"
+  ],
+  "author": "Ognjen Popovic",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rentorious/srpsko_finsko_drustvo/issues"
+  },
+  "homepage": "https://github.com/rentorious/srpsko_finsko_drustvo#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
