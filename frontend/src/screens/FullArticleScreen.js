@@ -8,7 +8,7 @@ export default function FullArticleScreen(props) {
   return (
     <div>
       <header>
-        <div className="card">
+        <div className="card detail-header">
           <div className="image">
             <img src={article.image} alt={article.alt} className="responsive" />
           </div>

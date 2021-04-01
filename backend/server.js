@@ -8,10 +8,10 @@ app.get("/", (req, res) => {
 });
 
 app.get("/api/articles/", (req, res) => {
-  console.log("ARTICLES");
   res.send(data.articles);
 });
 
+const PORT = process.env.PORT || 5000;
 app.listen(5000, () => {
   console.log("Serve at hpp://localhost:5000");
 });

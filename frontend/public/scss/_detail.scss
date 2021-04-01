@@ -1,5 +1,9 @@
 @import "mixins";
 
+.detail-header {
+  flex-direction: column;
+}
+
 .detail {
   @include flexCenter(column);
   width: 90%;
