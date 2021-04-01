@@ -314,6 +314,10 @@ main {
   background-color: #ffe0e0;
 }
 
+.alert-loading {
+  color: #fff;
+}
+
 .page-header {
   color: #d2aa6d;
   -ms-grid-row: 2;

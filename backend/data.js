@@ -1,4 +1,20 @@
+import bcrypt from "bcryptjs";
+
 const data = {
+  users: [
+    {
+      name: "Mah Umps",
+      username: "mah_umps",
+      password: bcrypt.hashSync("wilijamcrni", 8),
+      isAdmin: true,
+    },
+    {
+      name: "Admin",
+      username: "admir",
+      password: bcrypt.hashSync("wilijamcrni", 8),
+      isAdmin: false,
+    },
+  ],
   articles: [
     {
       title: "Poziv na redovnu godisnju skupstinu drustva",
