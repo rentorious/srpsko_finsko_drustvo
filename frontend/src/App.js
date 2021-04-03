@@ -2,6 +2,7 @@ import React from "react";
 import { BrowserRouter, Route } from "react-router-dom";
 import HomeScreen from "./screens/HomeScreen";
 import FullArticleScreen from "./screens/FullArticleScreen";
+import ArticleEditorScreen from "./screens/ArticleEditorScreen";
 
 function App() {
   return (
@@ -52,6 +53,7 @@ function App() {
       </nav>
       <Route path="/" component={HomeScreen} exact />
       <Route path="/articles/:slug/" component={FullArticleScreen} />
+      <Route path="/new-article" component={ArticleEditorScreen} />
     </BrowserRouter>
   );
 }

@@ -1,5 +1,6 @@
 @import "config";
 @import "variables";
+@import "colors";
 @import "text_colors";
 @import "language_picker";
 @import "nav";
@@ -9,6 +10,8 @@
 @import "main";
 @import "detail";
 @import "message_box";
+@import "article_editor";
+@import "buttons";
 
 @import "./page/main";
 body {
