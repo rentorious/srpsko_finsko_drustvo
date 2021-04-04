@@ -1,6 +1,7 @@
 import express from "express";
 import mongoose from "mongoose";
 import data from "./data.js";
+import articleRouter from "./routers/articleRouter.js";
 import userRouter from "./routers/userRouter.js";
 
 const app = express();
@@ -13,7 +14,10 @@ mongoose.connect(
   }
 );
 
+app.use(express.json());
+
 app.use("/api/users", userRouter);
+app.use("/api/articles", articleRouter);
 
 app.get("/", (req, res) => {
   res.send("Server is ready");
