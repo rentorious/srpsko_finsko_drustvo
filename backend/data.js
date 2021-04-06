@@ -23,6 +23,7 @@ const data = {
         "Pozivamo vas na redovnu godisnju skupstinu drustva koja ce se odrzati u sredu 13. maja sa pocetkom u 18:00 casova",
       image: "/img/1.jpg",
       slug: "article2",
+      category: "test",
     },
     {
       title: "Poziv na redovnu godisnju skupstinu drustva",
@@ -30,6 +31,7 @@ const data = {
       description:
         "Pozivamo vas na redovnu godisnju skupstinu drustva koja ce se odrzati u sredu 13. maja sa pocetkom u 18:00 casova",
       image: "/img/2.jpg",
+      category: "test",
       slug: "article3",
     },
     {
@@ -39,6 +41,7 @@ const data = {
         "Pozivamo vas na redovnu godisnju skupstinu drustva koja ce se odrzati u sredu 13. maja sa pocetkom u 18:00 casova",
       image: "/img/3.jpg",
       slug: "article7",
+      category: "test",
     },
     {
       title: "Poziv na redovnu godisnju skupstinu drustva",
@@ -47,6 +50,7 @@ const data = {
         "Pozivamo vas na redovnu godisnju skupstinu drustva koja ce se odrzati u sredu 13. maja sa pocetkom u 18:00 casova",
       image: "/img/4.jpg",
       slug: "article4",
+      category: "test",
     },
     {
       title: "Poziv na redovnu godisnju skupstinu drustva",
@@ -55,6 +59,7 @@ const data = {
         "Pozivamo vas na redovnu godisnju skupstinu drustva koja ce se odrzati u sredu 13. maja sa pocetkom u 18:00 casova",
       image: "/img/5.jpg",
       slug: "article5",
+      category: "test",
     },
     {
       title: "Poziv na redovnu godisnju skupstinu drustva",
@@ -63,6 +68,7 @@ const data = {
         "Pozivamo vas na redovnu godisnju skupstinu drustva koja ce se odrzati u sredu 13. maja sa pocetkom u 18:00 casova",
       image: "/img/6.jpg",
       slug: "article6",
+      category: "test",
     },
   ],
 };

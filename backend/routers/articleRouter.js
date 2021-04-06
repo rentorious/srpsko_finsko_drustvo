@@ -5,6 +5,15 @@ import slugify from "slugify";
 
 const articleRouter = express.Router();
 
+articleRouter.delete(
+  "/",
+  expressAsyncHandler(async (req, res) => {
+    await Article.deleteMany({});
+
+    res.send("Deleted");
+  })
+);
+
 articleRouter.post(
   "/add",
   expressAsyncHandler(async (req, res) => {
@@ -37,8 +46,19 @@ articleRouter.get(
   "/",
   expressAsyncHandler(async (req, res) => {
     const articles = await Article.find({});
+    res.send(articles);
+  })
+);
 
-    res.send({ articles });
+articleRouter.get(
+  "/:slug",
+  expressAsyncHandler(async (req, res) => {
+    const article = await Article.findOne({ slug: req.params.slug });
+    if (article) {
+      res.send(article);
+    } else {
+      res.status(404).send({ message: "Article Not Found" });
+    }
   })
 );
 

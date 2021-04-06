@@ -7,6 +7,7 @@ const articleSchema = new mongoose.Schema(
     contentSerbian: { type: String, required: true },
     contentFinnish: { type: String, required: true },
     category: { type: String, required: true },
+    titleImage: { type: String, requred: true },
   },
   {
     timestamps: true,

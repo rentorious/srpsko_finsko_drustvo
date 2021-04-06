@@ -14,6 +14,7 @@ export const listArticles = () => async (dispatch) => {
   });
   try {
     const { data } = await Axios.get("/api/articles/");
+    console.log(data);
     dispatch({ type: ARTICLE_LIST_SUCCESS, payload: data });
   } catch (error) {
     dispatch({ type: ARTICLE_LIST_FAIL, payload: error.message });

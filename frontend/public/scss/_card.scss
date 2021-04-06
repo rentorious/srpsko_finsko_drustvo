@@ -34,11 +34,19 @@
       display: flex;
       flex-direction: row-reverse;
 
+      
+
       a {
         color: $accent-color;
         display: block;
         margin-right: 0.5em;
+
+        &.card-category {
+          align-self: end;
+        }
       }
+
+      
     }
   }
 }

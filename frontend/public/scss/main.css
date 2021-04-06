@@ -218,6 +218,12 @@ nav .toggle {
   margin-right: 0.5em;
 }
 
+.card .description .footer a.card-category {
+  -ms-flex-item-align: end;
+      -ms-grid-row-align: end;
+      align-self: end;
+}
+
 header hr {
   color: white;
   opacity: 75%;

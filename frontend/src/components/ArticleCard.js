@@ -14,11 +14,12 @@ export default function ArticleCard(props) {
         <h2>{article.title}</h2>
         <div className="short">
           {article.description}
-          <a href={`/articles/${article.slug}`}>
+          <a className="card-category" href={`/articles/${article.slug}`}>
             <span className="learnMore">...detaljnije</span>
           </a>
         </div>
         <div className="footer">
+          <a href={`articles/${article.category}`}>{article.category}</a>
           <a href="/share">
             <i className="fas fa-share-alt"></i>
           </a>
