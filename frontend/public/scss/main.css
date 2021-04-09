@@ -84,6 +84,16 @@ nav .navigation .navItem {
   margin: 1rem;
 }
 
+nav .navigation a {
+  padding: 0.5rem;
+  -webkit-transition: .3s ease-out;
+  transition: .3s ease-out;
+}
+
+nav .navigation a:hover {
+  background-color: #dec194;
+}
+
 nav #brand {
   -webkit-box-flex: 0;
       -ms-flex: 0 1 40%;
@@ -175,8 +185,16 @@ nav .toggle {
   background-color: #f1f9ff;
 }
 
-.card img {
+.card .image img {
   border-radius: 15px;
+  -webkit-transition: .3s ease-in-out;
+  transition: .3s ease-in-out;
+}
+
+.card .image:hover img {
+  -webkit-transform: scale(0.99);
+          transform: scale(0.99);
+  opacity: 80%;
 }
 
 .card .description {
@@ -210,6 +228,8 @@ nav .toggle {
   -webkit-box-direction: reverse;
       -ms-flex-direction: row-reverse;
           flex-direction: row-reverse;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
 }
 
 .card .description .footer a {
@@ -219,9 +239,8 @@ nav .toggle {
 }
 
 .card .description .footer a.card-category {
-  -ms-flex-item-align: end;
-      -ms-grid-row-align: end;
-      align-self: end;
+  -ms-grid-column-align: end !important;
+      justify-self: end !important;
 }
 
 header hr {
@@ -297,6 +316,7 @@ main {
   width: 90%;
   font-size: 1.25rem;
   margin-top: 2rem;
+  margin-bottom: 2rem;
 }
 
 .detail p {
@@ -377,6 +397,17 @@ div.editor-container .editor-controls button {
   padding: 0.5rem;
   margin: 0.25rem;
   border: none;
+  -webkit-transition: .3s ease-in-out;
+  transition: .3s ease-in-out;
+}
+
+.btn-primary {
+  background: #d2aa6d;
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background-color: #dec194;
 }
 
 .btn-success {
@@ -385,7 +416,7 @@ div.editor-container .editor-controls button {
 }
 
 .btn-success:hover {
-  background-color: #60df60;
+  background-color: #29cb29;
 }
 
 .btn-danger {
@@ -394,7 +425,31 @@ div.editor-container .editor-controls button {
 }
 
 .btn-danger:hover {
-  background-color: #df6060;
+  background-color: #cb2929;
+}
+
+.btn-block {
+  width: 100%;
+}
+
+form div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 0.75rem;
+}
+
+form input,
+form label {
+  border-radius: 0.25rem;
+  padding: 0.5rem;
+  margin: 0.25rem;
 }
 
 .page-header {
@@ -528,10 +583,6 @@ p {
 
 a.active {
   font-weight: 500;
-}
-
-a:hover {
-  font-weight: 700;
 }
 
 h1 {

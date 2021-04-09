@@ -12,6 +12,7 @@
 @import "message_box";
 @import "article_editor";
 @import "buttons";
+@import "form";
 
 @import "./page/main";
 body {
@@ -42,10 +43,6 @@ p {
 
 a.active {
   font-weight: weight(medium);
-}
-
-a:hover {
-  font-weight: weight(bold);
 }
 
 h1 {

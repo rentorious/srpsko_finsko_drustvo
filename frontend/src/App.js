@@ -3,6 +3,7 @@ import { BrowserRouter, Route } from "react-router-dom";
 import HomeScreen from "./screens/HomeScreen";
 import FullArticleScreen from "./screens/FullArticleScreen";
 import ArticleEditorScreen from "./screens/ArticleEditorScreen";
+import SigninScreen from "./screens/SigninScreen";
 
 function App() {
   return (
@@ -54,6 +55,7 @@ function App() {
       <Route path="/" component={HomeScreen} exact />
       <Route path="/articles/:slug/" component={FullArticleScreen} />
       <Route path="/new-article" component={ArticleEditorScreen} />
+      <Route path="/signin" component={SigninScreen} />
     </BrowserRouter>
   );
 }

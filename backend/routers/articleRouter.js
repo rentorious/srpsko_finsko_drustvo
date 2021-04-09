@@ -17,10 +17,13 @@ articleRouter.delete(
 articleRouter.post(
   "/add",
   expressAsyncHandler(async (req, res) => {
-    const { title, contentSerbian, contentFinnish, category } = req.body;
+    const {
+      title,
+      contentSerbian,
+      contentFinnish,
+      category,
+    } = req.body.article;
     const slug = slugify(title);
-
-    console.log(slug);
 
     var existing = await Article.findOne({ slug: slug });
     if (existing) {

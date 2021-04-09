@@ -11,8 +11,14 @@
   margin-bottom: 1rem;
   background-color: $card-bg-color;
 
-  img {
+  .image img {
     border-radius: 15px;
+    transition: .3s ease-in-out;
+  }
+
+  .image:hover img{ 
+    transform: scale(.99);
+    opacity: 80%;
   }
 
   .description {
@@ -33,7 +39,7 @@
     .footer {
       display: flex;
       flex-direction: row-reverse;
-
+      justify-content: space-around;
       
 
       a {
@@ -42,7 +48,7 @@
         margin-right: 0.5em;
 
         &.card-category {
-          align-self: end;
+          justify-self: end !important;
         }
       }
 
