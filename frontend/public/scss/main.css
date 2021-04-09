@@ -432,6 +432,10 @@ div.editor-container .editor-controls button {
   width: 100%;
 }
 
+form {
+  margin: 1rem;
+}
+
 form div {
   display: -webkit-box;
   display: -ms-flexbox;

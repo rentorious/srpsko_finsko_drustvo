@@ -1,13 +1,27 @@
 import React from "react";
-import { BrowserRouter, Route } from "react-router-dom";
+import { BrowserRouter, Route, Link } from "react-router-dom";
 import HomeScreen from "./screens/HomeScreen";
 import FullArticleScreen from "./screens/FullArticleScreen";
 import ArticleEditorScreen from "./screens/ArticleEditorScreen";
 import SigninScreen from "./screens/SigninScreen";
+import { useDispatch, useSelector } from "react-redux";
+import { signout } from "./actions/userActions";
 
 function App() {
+  const userSignin = useSelector((state) => state.userSignin);
+  const { userInfo } = userSignin;
+  const dispatch = useDispatch();
+  const signoutHandler = () => {
+    dispatch(signout());
+  };
   return (
     <BrowserRouter>
+      {/* LOGOUT BUTTON  */}
+      {userInfo && (
+        <Link to="#signout" onClick={signoutHandler}>
+          SIGN OUT
+        </Link>
+      )}
       <div id="language">
         <div id="serbian">
           <img
@@ -16,6 +30,7 @@ function App() {
             className="responsive"
           />
         </div>
+
         <div id="finnish">
           <img
             src="/img/fin_icon.png"

@@ -1,24 +1,37 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { createArticle } from "../actions/articleActions";
 import LoadingBox from "../components/LoadingBox";
 import MessageBox from "../components/MessageBox";
-import TextEditor from "../components/TextEditor";
+import { signin } from "../actions/userActions";
 
 export default function SigninScreen(props) {
-  const [userName, setUsername] = useState("");
+  const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+
+  const userSignin = useSelector((state) => state.userSignin);
+  const { userInfo, loading, error } = userSignin;
+
+  const dispatch = useDispatch();
 
   const submitHandler = (e) => {
     e.preventDefault();
+    dispatch(signin(username, password));
   };
+
+  useEffect(() => {
+    if (userInfo) {
+      props.history.push("/");
+    }
+  }, [props.history, userInfo]);
 
   return (
     <div className="card">
-      <form className="signin-form">
+      <form className="signin-form" onSubmit={submitHandler}>
         <div>
           <h1>Sign in</h1>
         </div>
+        {loading && <LoadingBox />}
+        {error && <MessageBox variant="danger">{error}</MessageBox>}
         <div>
           <label htmlFor="username">Username:</label>
           <input
