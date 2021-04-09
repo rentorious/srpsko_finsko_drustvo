@@ -5,16 +5,11 @@ import FullArticleScreen from "./screens/FullArticleScreen";
 import ArticleEditorScreen from "./screens/ArticleEditorScreen";
 import SigninScreen from "./screens/SigninScreen";
 import AdminSidebar from "./components/AdminSidebar";
-import { useDispatch, useSelector } from "react-redux";
-import { signout } from "./actions/userActions";
+import { useSelector } from "react-redux";
 
 function App() {
   const userSignin = useSelector((state) => state.userSignin);
   const { userInfo } = userSignin;
-  const dispatch = useDispatch();
-  const signoutHandler = () => {
-    dispatch(signout());
-  };
   return (
     <BrowserRouter>
       {userInfo && <AdminSidebar />}

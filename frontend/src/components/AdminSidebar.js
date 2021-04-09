@@ -1,11 +1,9 @@
 import React from "react";
 import { signout } from "../actions/userActions";
 import { Link, withRouter } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 
 function AdminSidebar(props) {
-  const userSignin = useSelector((state) => state.userSignin);
-  const { userInfo } = userSignin;
   const dispatch = useDispatch();
   const signoutHandler = () => {
     dispatch(signout());
