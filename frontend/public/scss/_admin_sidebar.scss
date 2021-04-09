@@ -1,0 +1,19 @@
+@import "colors";
+
+.admin-sidebar {
+  background: $light-color;
+  position: fixed;
+  left: 1rem;
+  top: 50%;
+  border-radius: 0.15rem;
+  z-index: 1000;
+
+  box-shadow: 10px 10px 16px -15px rgba(0, 0, 0, 0.75);
+
+  div {
+    border-radius: 0.25rem;
+    margin: 0.5rem;
+    padding: 0.4rem;
+    max-width: 5rem;
+  }
+}

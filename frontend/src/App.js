@@ -1,9 +1,10 @@
 import React from "react";
-import { BrowserRouter, Route, Link } from "react-router-dom";
+import { BrowserRouter, Route } from "react-router-dom";
 import HomeScreen from "./screens/HomeScreen";
 import FullArticleScreen from "./screens/FullArticleScreen";
 import ArticleEditorScreen from "./screens/ArticleEditorScreen";
 import SigninScreen from "./screens/SigninScreen";
+import AdminSidebar from "./components/AdminSidebar";
 import { useDispatch, useSelector } from "react-redux";
 import { signout } from "./actions/userActions";
 
@@ -16,12 +17,7 @@ function App() {
   };
   return (
     <BrowserRouter>
-      {/* LOGOUT BUTTON  */}
-      {userInfo && (
-        <Link to="#signout" onClick={signoutHandler}>
-          SIGN OUT
-        </Link>
-      )}
+      {userInfo && <AdminSidebar />}
       <div id="language">
         <div id="serbian">
           <img
