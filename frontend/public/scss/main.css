@@ -86,12 +86,13 @@ nav .navigation .navItem {
 
 nav .navigation a {
   padding: 0.5rem;
-  -webkit-transition: .3s ease-out;
-  transition: .3s ease-out;
+  -webkit-transition: 0.3s ease-out;
+  transition: 0.3s ease-out;
 }
 
 nav .navigation a:hover {
   background-color: #dec194;
+  border-radius: 1rem;
 }
 
 nav #brand {

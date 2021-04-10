@@ -15,17 +15,17 @@ nav {
       margin: 1rem;
     }
 
-     a {
-    padding: 0.5rem;
-    transition: .3s ease-out;
-  }
+    a {
+      padding: 0.5rem;
+      transition: 0.3s ease-out;
+    }
 
     a:hover {
       // font-weight: weight(bold);
       background-color: lighten($accent-color, 10);
+      border-radius: 1rem;
     }
   }
-
 
   #brand {
     flex: 0 1 40%;
