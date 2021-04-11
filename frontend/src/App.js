@@ -6,61 +6,21 @@ import ArticleEditorScreen from "./screens/ArticleEditorScreen";
 import SigninScreen from "./screens/SigninScreen";
 import AdminSidebar from "./components/AdminSidebar";
 import { useSelector } from "react-redux";
+import AdminRoute from "./components/AdminRoute";
+import Nav from "./components/Nav";
+import LanguagePicker from "./components/LanguagePicker";
 
 function App() {
   const userSignin = useSelector((state) => state.userSignin);
   const { userInfo } = userSignin;
   return (
     <BrowserRouter>
-      {userInfo && <AdminSidebar />}
-      <div id="language">
-        <div id="serbian">
-          <img
-            src="/img/srb_icon.png"
-            alt="Serbian language button"
-            className="responsive"
-          />
-        </div>
-
-        <div id="finnish">
-          <img
-            src="/img/fin_icon.png"
-            alt="Finnish language button"
-            className="responsive"
-          />
-        </div>
-      </div>
-      <nav>
-        <div id="brand">
-          <a href="/">
-            <img
-              className="responsive"
-              src="/img/banner.png"
-              alt="logo srpsko finskog drustva"
-            />
-          </a>
-        </div>
-        <div className="navigation">
-          <a href="/" className="navItem active">
-            Naslovna
-          </a>
-          <a href="/about" className="navItem">
-            O nama
-          </a>
-          <a href="/postanite-clan" className="navItem">
-            Postanite član
-          </a>
-          <a href="/pisite-nam" className="navItem">
-            Pišite nam
-          </a>
-          <div className="toggle">
-            <i className="fas fa-bars"></i>
-          </div>
-        </div>
-      </nav>
+      {userInfo && userInfo.isAdmin && <AdminSidebar />}
+      <LanguagePicker />
+      <Nav />
       <Route path="/" component={HomeScreen} exact />
       <Route path="/articles/:slug/" component={FullArticleScreen} />
-      <Route path="/new-article" component={ArticleEditorScreen} />
+      <AdminRoute path="/new-article" component={ArticleEditorScreen} />
       <Route path="/signin" component={SigninScreen} />
     </BrowserRouter>
   );

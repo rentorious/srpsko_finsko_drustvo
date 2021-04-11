@@ -12,14 +12,12 @@ function AdminSidebar(props) {
 
   return (
     <div className="admin-sidebar">
-      <div className=" btn-block btn-primary">
-        <Link to="/new-article">NEW ARTICLE</Link>
-      </div>
-      <div className="btn-block btn-danger">
-        <Link to="#signout" onClick={signoutHandler}>
-          SIGN OUT
-        </Link>
-      </div>
+      <Link to="/new-article">
+        <div className=" btn-block btn-primary">NEW ARTICLE</div>
+      </Link>
+      <Link to="#signout" onClick={signoutHandler}>
+        <div className="btn-block btn-danger">SIGN OUT</div>
+      </Link>
     </div>
   );
 }

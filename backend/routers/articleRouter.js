@@ -65,4 +65,20 @@ articleRouter.get(
   })
 );
 
+articleRouter.put(
+  "/:slug",
+  expressAsyncHandler(async (req, res) => {
+    const article = await Article.findOne({ slug: req.params.slug });
+    if (article) {
+      article.title = req.body.title;
+      article.contentSerbian = req.body.contentSerbian;
+      article.contentFinnish = req.body.contentFinnish;
+      article.categories = req.body.categories;
+      article.titleImage = req.body.titleImage;
+    } else {
+      res.status(404).send({ message: "Article Not Found" });
+    }
+  })
+);
+
 export default articleRouter;
