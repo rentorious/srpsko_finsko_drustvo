@@ -388,8 +388,8 @@ main {
   padding: 0.5rem;
   margin: 0.25rem;
   border: none;
-  -webkit-transition: .3s ease-in-out;
-  transition: .3s ease-in-out;
+  -webkit-transition: 0.3s ease-in-out;
+  transition: 0.3s ease-in-out;
 }
 
 .btn-primary {
@@ -417,6 +417,15 @@ main {
 
 .btn-danger:hover {
   background-color: #cb2929;
+}
+
+.btn-info {
+  background-color: #2020a0;
+  color: #f0f0f0;
+}
+
+.btn-info:hover {
+  background-color: #2929cb;
 }
 
 .btn-block {

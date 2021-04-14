@@ -9,6 +9,11 @@ export default function FullArticleScreen(props) {
   const slug = props.match.params.slug;
   const articleDetails = useSelector((state) => state.articleDetails);
   const { loading, error, article } = articleDetails;
+  const { setCurrentArticle } = props;
+
+  useEffect(() => {
+    setCurrentArticle(slug);
+  }, [article, slug, setCurrentArticle]);
 
   useEffect(() => {
     dispatch(detailsArticle(slug));
@@ -26,9 +31,9 @@ export default function FullArticleScreen(props) {
             <div className="card detail-header">
               <div className="image">
                 <img
-                  // src={article.image}
-                  src="/img/1.jpg"
-                  alt={article.alt}
+                  src={article.titleImage}
+                  // src="/img/1.jpg"
+                  alt={article.titleImageAlt}
                   className="responsive"
                 />
               </div>

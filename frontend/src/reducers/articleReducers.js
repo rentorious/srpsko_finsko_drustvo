@@ -11,6 +11,9 @@ const {
   CATEGORY_LIST_REQUEST,
   CATEGORY_LIST_SUCCESS,
   CATEGORY_LIST_FAIL,
+  UPDATE_ARTICLE_REQUEST,
+  UPDATE_ARTICLE_SUCCESS,
+  UPDATE_ARTICLE_FAIL,
 } = require("../constants/articleConstants");
 
 export const articleListReducer = (
@@ -68,6 +71,19 @@ export const articleCreateReducer = (state = {}, action) => {
     case CREATE_ARTICLE_SUCCESS:
       return { loading: false, success: true, article: action.payload };
     case CREATE_ARTICLE_FAIL:
+      return { loading: false, error: action.payload };
+    default:
+      return state;
+  }
+};
+
+export const articleUpdateReducer = (state = {}, action) => {
+  switch (action.type) {
+    case UPDATE_ARTICLE_REQUEST:
+      return { loading: true };
+    case UPDATE_ARTICLE_SUCCESS:
+      return { loading: false, success: true, article: action.payload };
+    case UPDATE_ARTICLE_FAIL:
       return { loading: false, error: action.payload };
     default:
       return state;

@@ -8,6 +8,8 @@ const articleRouter = express.Router();
 
 articleRouter.delete(
   "/",
+  isAuth,
+  isAdmin,
   expressAsyncHandler(async (req, res) => {
     await Article.deleteMany({});
 
@@ -82,14 +84,27 @@ articleRouter.get(
 
 articleRouter.put(
   "/:slug",
+  isAuth,
+  isAdmin,
   expressAsyncHandler(async (req, res) => {
     const article = await Article.findOne({ slug: req.params.slug });
+    const newArticle = req.body.article;
     if (article) {
-      article.title = req.body.title;
-      article.contentSerbian = req.body.contentSerbian;
-      article.contentFinnish = req.body.contentFinnish;
-      article.categories = req.body.categories;
-      article.titleImage = req.body.titleImage;
+      article.title = newArticle.title;
+      // TODO: Remove previous image
+      article.titleImage = newArticle.titleImage;
+      article.titleImageAlt = `${newArticle.title} ${newArticle.category} title image.`;
+      // NOTE: Should I change the slug as well
+      article.contentSerbian = newArticle.contentSerbian;
+      article.contentFinnish = newArticle.contentFinnish;
+      article.category = newArticle.category;
+      try {
+        const updatedArticle = await article.save();
+        res.send({ message: "Article Updated", article: updatedArticle });
+      } catch (error) {
+        res.status(500).send({ message: error });
+        // console.log(error);
+      }
     } else {
       res.status(404).send({ message: "Article Not Found" });
     }

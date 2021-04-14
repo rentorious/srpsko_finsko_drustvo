@@ -3,10 +3,11 @@ import { stripHtml } from "string-strip-html";
 
 export default function ArticleCard(props) {
   const { article } = props;
+
   return (
     <div className="card">
       <div className="image">
-        <a href={`/articles/${article.slug}`}>
+        <a href={`/articles/article/${article.slug}`}>
           <img
             src={article.titleImage}
             alt={article.titleImageAlt}
@@ -19,7 +20,7 @@ export default function ArticleCard(props) {
         <h2>{article.title}</h2>
         <div className="short">
           {stripHtml(article.contentSerbian).result.substring(0, 100)}
-          <a href={`/articles/${article.slug}`}>
+          <a href={`/articles/article/${article.slug}`}>
             <span className="learnMore">...detaljnije</span>
           </a>
         </div>

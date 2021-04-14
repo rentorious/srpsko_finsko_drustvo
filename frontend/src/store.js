@@ -4,6 +4,7 @@ import {
   articleListReducer,
   articleDetailsReducer,
   articleCreateReducer,
+  articleUpdateReducer,
   categoryListReducer,
 } from "./reducers/articleReducers";
 import { userSigninReducer } from "./reducers/userReducers";
@@ -20,6 +21,7 @@ const reducer = combineReducers({
   categoryList: categoryListReducer,
   articleDetails: articleDetailsReducer,
   articleCreate: articleCreateReducer,
+  articleUpdate: articleUpdateReducer,
   userSignin: userSigninReducer,
 });
 const composeEnhancer = window.___REDUX_DEVTOOLS_EXTENSION_COMPOSE || compose;

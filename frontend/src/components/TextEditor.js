@@ -7,26 +7,29 @@ const TextEditor = (props) => {
   useEffect(() => {
     // Get underlining core object here
     // Notice that useEffect is been used because you have to make sure the editor is rendered.
+    console.log(props.setContentsSrb, props.setContentsFin);
   }, []);
 
   return (
     <div>
       <SunEditor
         height="500px"
-        defaultValue={"<h1>Srpski</h1>"}
+        // defaultValue={props.defaultValueSerbian}
         className="text-editor"
         ref={editorRef}
         setOptions={{ buttonList: buttonList.complex }}
         onChange={props.onChangeSerbian}
+        setContents={props.setContentsSrb}
         id="editor-serbian"
       />
       <SunEditor
         height="500px"
-        defaultValue={"<h1>Suomalainen</h1>"}
+        // defaultValue={props.defaultValueFinnish}
         className="text-editor"
         ref={editorRef}
         setOptions={{ buttonList: buttonList.complex }}
         onChange={props.onChangeFinnish}
+        setContents={props.setContentsFin}
         id="editor-finnish "
       />
     </div>

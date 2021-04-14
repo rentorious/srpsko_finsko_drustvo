@@ -4,5 +4,4 @@ export const parseTimestamp = (timestamp) => {
   const day = timestamp.substring(8, 10);
 
   return `${day}.${month}.${year}`;
-  console.log(`${day}.${month}.${year}`);
 };

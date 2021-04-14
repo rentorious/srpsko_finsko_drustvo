@@ -12,6 +12,9 @@ import {
   CATEGORY_LIST_REQUEST,
   CATEGORY_LIST_SUCCESS,
   CATEGORY_LIST_FAIL,
+  UPDATE_ARTICLE_REQUEST,
+  UPDATE_ARTICLE_SUCCESS,
+  UPDATE_ARTICLE_FAIL,
 } from "../constants/articleConstants";
 import { parseTimestamp } from "../helpers.js";
 
@@ -76,6 +79,33 @@ export const createArticle = (article) => async (dispatch, getState) => {
   } catch (error) {
     dispatch({
       type: CREATE_ARTICLE_FAIL,
+      payload:
+        error.response && error.response.data.message
+          ? error.response.data.message
+          : error.message,
+    });
+  }
+};
+
+export const updateArticle = (article) => async (dispatch, getState) => {
+  dispatch({ type: UPDATE_ARTICLE_REQUEST });
+  const {
+    userSignin: { userInfo },
+  } = getState();
+  try {
+    const { data } = await Axios.put(
+      `/api/articles/${article.slug}`,
+      {
+        article,
+      },
+      {
+        headers: { Authorization: `Bearer ${userInfo.token}` },
+      }
+    );
+    dispatch({ type: UPDATE_ARTICLE_SUCCESS, payload: data });
+  } catch (error) {
+    dispatch({
+      type: UPDATE_ARTICLE_FAIL,
       payload:
         error.response && error.response.data.message
           ? error.response.data.message

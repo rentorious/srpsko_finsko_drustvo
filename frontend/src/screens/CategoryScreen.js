@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 import ArticleCard from "../components/ArticleCard";
 import LoadingBox from "../components/LoadingBox";
-import MessageBox from "../components/MessageBox";
 import { useDispatch, useSelector } from "react-redux";
 import { listCategory } from "../actions/articleActions";
 

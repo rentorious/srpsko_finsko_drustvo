@@ -1,43 +1,49 @@
 @import "colors";
 
 .btn {
-    border-radius: 0.25rem;
-    padding: 0.5rem;
-    margin: 0.25rem;
-    border: none;
-    transition: .3s ease-in-out;
+  border-radius: 0.25rem;
+  padding: 0.5rem;
+  margin: 0.25rem;
+  border: none;
+  transition: 0.3s ease-in-out;
 }
-
 
 .btn-primary {
-    background: $accent-color;
-    color: $light-color;
+  background: $accent-color;
+  color: $light-color;
 
-    &:hover {
-        background-color: lighten($accent-color, 10);
-    }
+  &:hover {
+    background-color: lighten($accent-color, 10);
+  }
 }
 
-
-
 .btn-success {
-    background-color:  $success;
-    color: $light-color;
+  background-color: $success;
+  color: $light-color;
 
-    &:hover {
-        background-color: lighten($success, 10);
-    }
+  &:hover {
+    background-color: lighten($success, 10);
+  }
 }
 
 .btn-danger {
-    background-color:  $danger;
-    color: $light-color;
+  background-color: $danger;
+  color: $light-color;
 
-    &:hover {
-        background-color: lighten($danger, 10);
-    }
+  &:hover {
+    background-color: lighten($danger, 10);
+  }
 }
 
-.btn-block { 
-    width: 100%
+.btn-info {
+  background-color: $info;
+  color: $light-color;
+
+  &:hover {
+    background-color: lighten($info, 10);
+  }
+}
+
+.btn-block {
+  width: 100%;
 }
