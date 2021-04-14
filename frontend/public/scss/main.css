@@ -198,10 +198,17 @@ nav .toggle {
   opacity: 80%;
 }
 
+@media (max-width: 1350px) {
+  .card {
+    width: 100%;
+  }
+}
+
 .card .description {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  width: 90%;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
@@ -228,6 +235,12 @@ nav .toggle {
 
 .card .description .learnMore {
   color: #d2aa6d;
+  -webkit-transition: 0.3s ease-in-out;
+  transition: 0.3s ease-in-out;
+}
+
+.card .description .learnMore:hover {
+  color: #6b4e21;
 }
 
 .card .description .footer {
@@ -238,6 +251,7 @@ nav .toggle {
   -webkit-box-direction: reverse;
       -ms-flex-direction: row-reverse;
           flex-direction: row-reverse;
+  justify-self: start;
 }
 
 .card .description .footer a {
@@ -247,17 +261,18 @@ nav .toggle {
 }
 
 .card .description .footer a.card-category {
-  background-color: lightgray;
+  background-color: #e6dccf;
   border-radius: 0.25rem;
   padding: 3px 5px;
   font-size: 0.75rem;
-  color: #f0f0f0;
+  color: #d2aa6d;
   -webkit-transition: 0.3s ease-in-out;
   transition: 0.3s ease-in-out;
 }
 
 .card .description .footer a.card-category:hover {
-  color: #d2aa6d;
+  color: #f0f0f0;
+  background-color: #d5c4ad;
 }
 
 header hr {
@@ -273,12 +288,6 @@ header .card {
   -webkit-box-direction: reverse;
       -ms-flex-direction: column-reverse;
           flex-direction: column-reverse;
-}
-
-header .card .image {
-  -ms-flex-item-align: end;
-      -ms-grid-row-align: end;
-      align-self: end;
 }
 
 @media (max-width: 610px) {
@@ -302,7 +311,7 @@ main {
   width: 100%;
 }
 
-@media (max-width: 890px) {
+@media (max-width: 1350px) {
   main {
     -ms-grid-columns: 1fr;
         grid-template-columns: 1fr;
@@ -339,6 +348,15 @@ main {
 .detail p {
   margin-bottom: 0.5rem;
   color: #f0f0f0 !important;
+}
+
+.detail h1,
+.detail h2,
+.detail h3,
+.detail h4,
+.detail h5,
+.detail h6 {
+  color: #f0f0f0;
 }
 
 .alert {

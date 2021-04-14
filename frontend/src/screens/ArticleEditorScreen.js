@@ -111,7 +111,7 @@ export default function ArticleEditorScreen(props) {
                 name="title"
                 onChange={onChangeTitle}
                 value={title}
-                maxLength="50"
+                maxLength="120"
                 required
               />
             </div>

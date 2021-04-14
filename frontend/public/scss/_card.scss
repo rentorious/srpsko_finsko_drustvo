@@ -1,5 +1,6 @@
 /* Card */
 @import "colors";
+@import "mixins";
 .card {
   display: flex;
   flex-direction: column;
@@ -21,8 +22,13 @@
     opacity: 80%;
   }
 
+  @include medium {
+    width: 100%;
+  }
+
   .description {
     display: flex;
+    width: 90%;
     flex-direction: column;
     justify-content: flex-start;
     margin: 1rem;
@@ -41,11 +47,17 @@
 
     .learnMore {
       color: $accent-color;
+      transition: 0.3s ease-in-out;
+    }
+
+    .learnMore:hover {
+      color: darken($accent-color, 35);
     }
 
     .footer {
       display: flex;
       flex-direction: row-reverse;
+      justify-self: start;
 
       a {
         color: $accent-color;
@@ -53,16 +65,17 @@
         margin-right: 0.5em;
 
         &.card-category {
-          background-color: lightgray;
+          background-color: #e6dccf;
           border-radius: 0.25rem;
           padding: 3px 5px;
           font-size: 0.75rem;
-          color: $light-color;
+          color: $accent-color;
 
           transition: 0.3s ease-in-out;
 
           &:hover {
-            color: $accent-color;
+            color: $light-color;
+            background-color: darken($color: #e6dccf, $amount: 10);
           }
         }
       }

@@ -11,10 +11,6 @@ header {
 
   .card {
     flex-direction: column-reverse;
-
-    .image {
-      align-self: end;
-    }
   }
 
   @include mobile {
