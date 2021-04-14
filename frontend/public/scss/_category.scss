@@ -1,0 +1,14 @@
+@import "colors";
+.category-heading {
+  margin-bottom: 2.5rem;
+  margin-right: 1rem;
+
+  small {
+    color: $light-color;
+  }
+}
+
+.category-name {
+  color: $accent-color;
+  text-decoration: underline;
+}

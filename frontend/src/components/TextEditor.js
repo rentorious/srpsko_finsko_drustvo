@@ -1,20 +1,14 @@
-import React, { useRef, useEffect, useState } from "react";
+import React, { useRef, useEffect } from "react";
 import SunEditor, { buttonList } from "suneditor-react";
 import "suneditor/dist/css/suneditor.min.css"; // Import Sun Editor's CSS File
 
 const TextEditor = (props) => {
-  const { defaultValue } = props;
   const editorRef = useRef();
   useEffect(() => {
     // Get underlining core object here
     // Notice that useEffect is been used because you have to make sure the editor is rendered.
-    console.log(editorRef.current.editor.core);
   }, []);
-  const [value, setValue] = useState("");
-  const onChange = (value) => {
-    setValue(value);
-    console.log(value);
-  };
+
   return (
     <div>
       <SunEditor
@@ -23,7 +17,7 @@ const TextEditor = (props) => {
         className="text-editor"
         ref={editorRef}
         setOptions={{ buttonList: buttonList.complex }}
-        onChange={onChange}
+        onChange={props.onChangeSerbian}
         id="editor-serbian"
       />
       <SunEditor
@@ -32,7 +26,7 @@ const TextEditor = (props) => {
         className="text-editor"
         ref={editorRef}
         setOptions={{ buttonList: buttonList.complex }}
-        onChange={onChange}
+        onChange={props.onChangeFinnish}
         id="editor-finnish "
       />
     </div>

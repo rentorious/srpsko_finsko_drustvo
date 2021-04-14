@@ -1,8 +1,13 @@
 import express from "express";
 import mongoose from "mongoose";
-import data from "./data.js";
+import dotenv from "dotenv";
+import path from "path";
+
 import articleRouter from "./routers/articleRouter.js";
 import userRouter from "./routers/userRouter.js";
+import uploadRouter from "./routers/uploadRouter.js";
+
+dotenv.config();
 
 const app = express();
 mongoose.connect(
@@ -14,10 +19,14 @@ mongoose.connect(
   }
 );
 
-app.use(express.json());
-
+app.use(express.json({ limit: "50mb" }));
+app.use(express.urlencoded({ extended: true, limit: "50mb" }));
 app.use("/api/users", userRouter);
 app.use("/api/articles", articleRouter);
+app.use("/api/uploads", uploadRouter);
+
+const __dirname = path.resolve();
+app.use("/uploads", express.static(path.join(__dirname, "/uploads")));
 
 app.get("/", (req, res) => {
   res.send("Server is ready");
@@ -29,6 +38,6 @@ app.use((err, req, res, next) => {
 });
 
 const PORT = process.env.PORT || 5000;
-app.listen(5000, () => {
+app.listen(PORT, () => {
   console.log("Serve at hpp://localhost:5000");
 });

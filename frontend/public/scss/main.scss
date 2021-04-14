@@ -12,8 +12,11 @@
 @import "message_box";
 @import "article_editor";
 @import "buttons";
-
+@import "form";
+@import "admin_sidebar";
+@import "category";
 @import "./page/main";
+
 body {
   background-image: linear-gradient($bg-color-top, $bg-color-bot);
   background-repeat: no-repeat;
@@ -32,7 +35,7 @@ body {
   }
 }
 a {
-  color: white;
+  color: $light-color;
   text-decoration: none;
 }
 
@@ -42,10 +45,6 @@ p {
 
 a.active {
   font-weight: weight(medium);
-}
-
-a:hover {
-  font-weight: weight(bold);
 }
 
 h1 {
