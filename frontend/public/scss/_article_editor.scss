@@ -1,27 +1,13 @@
 @import "mixins";
 
-div.editor-container {
-    @include flexCenter(column);
-    padding: 1rem;
-    width: auto !important;    
+.editor-container {
+  .editor-controls {
+    margin-top: 1rem;
+    width: 100%;
+    @include flexCenter(row);
 
-    input[type=text] {
-        display: block;
-        margin-bottom: 1rem;
-        border-radius: 0.25rem;
-        padding: 0.5rem;
-        // align-self: start;
-        width: 100%;
+    button {
+      width: 50%;
     }
-
-    .editor-controls {
-        margin-top: 1rem;
-        width: 100%;
-        @include flexCenter(row);
-
-        button {
-            width: 50%
-        }
-    }
-
-}  
+  }
+}

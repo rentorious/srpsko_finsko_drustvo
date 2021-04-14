@@ -9,6 +9,7 @@ import { useSelector } from "react-redux";
 import AdminRoute from "./components/AdminRoute";
 import Nav from "./components/Nav";
 import LanguagePicker from "./components/LanguagePicker";
+import CategoryScreen from "./screens/CategoryScreen";
 
 function App() {
   const userSignin = useSelector((state) => state.userSignin);
@@ -19,7 +20,8 @@ function App() {
       <LanguagePicker />
       <Nav />
       <Route path="/" component={HomeScreen} exact />
-      <Route path="/articles/:slug/" component={FullArticleScreen} />
+      <Route path="/articles/:slug/" component={FullArticleScreen} exact />
+      <Route path="/articles/category/:category/" component={CategoryScreen} />
       <AdminRoute path="/new-article" component={ArticleEditorScreen} />
       <Route path="/signin" component={SigninScreen} />
     </BrowserRouter>

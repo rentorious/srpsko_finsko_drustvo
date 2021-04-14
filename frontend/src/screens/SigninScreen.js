@@ -26,13 +26,13 @@ export default function SigninScreen(props) {
 
   return (
     <div className="card">
-      <form className="signin-form" onSubmit={submitHandler}>
-        <div>
+      <form className="form" onSubmit={submitHandler}>
+        <div className="input-group">
           <h1>Sign in</h1>
         </div>
         {loading && <LoadingBox />}
         {error && <MessageBox variant="danger">{error}</MessageBox>}
-        <div>
+        <div className="input-group">
           <label htmlFor="username">Username:</label>
           <input
             type="text"
@@ -42,7 +42,7 @@ export default function SigninScreen(props) {
             onChange={(e) => setUsername(e.target.value)}
           />
         </div>
-        <div>
+        <div className="input-group">
           <label htmlFor="password">Password:</label>
           <input
             type="password"

@@ -1,5 +1,5 @@
 /* Card */
-
+@import "colors";
 .card {
   display: flex;
   flex-direction: column;
@@ -13,11 +13,11 @@
 
   .image img {
     border-radius: 15px;
-    transition: .3s ease-in-out;
+    transition: 0.3s ease-in-out;
   }
 
-  .image:hover img{ 
-    transform: scale(.99);
+  .image:hover img {
+    transform: scale(0.99);
     opacity: 80%;
   }
 
@@ -27,9 +27,16 @@
     justify-content: flex-start;
     margin: 1rem;
 
-    h3,
+    h2,
     .short {
       margin-bottom: 0.5rem;
+    }
+
+    h2 {
+      overflow-wrap: break-word;
+      word-wrap: break-word;
+      word-break: break-word;
+      hyphens: auto;
     }
 
     .learnMore {
@@ -39,8 +46,6 @@
     .footer {
       display: flex;
       flex-direction: row-reverse;
-      justify-content: space-around;
-      
 
       a {
         color: $accent-color;
@@ -48,11 +53,19 @@
         margin-right: 0.5em;
 
         &.card-category {
-          justify-self: end !important;
+          background-color: lightgray;
+          border-radius: 0.25rem;
+          padding: 3px 5px;
+          font-size: 0.75rem;
+          color: $light-color;
+
+          transition: 0.3s ease-in-out;
+
+          &:hover {
+            color: $accent-color;
+          }
         }
       }
-
-      
     }
   }
 }

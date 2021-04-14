@@ -2,6 +2,7 @@ import express from "express";
 import Article from "../models/articleModel.js";
 import expressAsyncHandler from "express-async-handler";
 import slugify from "slugify";
+import { isAuth, isAdmin } from "../utils.js";
 
 const articleRouter = express.Router();
 
@@ -14,16 +15,28 @@ articleRouter.delete(
   })
 );
 
+articleRouter.get(
+  "/category/:category",
+  expressAsyncHandler(async (req, res) => {
+    const articles = await Article.find({ category: req.params.category });
+    res.send(articles);
+  })
+);
+
 articleRouter.post(
   "/add",
+  isAuth,
+  isAdmin,
   expressAsyncHandler(async (req, res) => {
     const {
       title,
       contentSerbian,
       contentFinnish,
       category,
+      titleImage,
     } = req.body.article;
     const slug = slugify(title);
+    const titleImageAlt = `${title} ${category} title image.`;
 
     var existing = await Article.findOne({ slug: slug });
     if (existing) {
@@ -31,6 +44,8 @@ articleRouter.post(
     } else {
       const newArticle = new Article({
         title,
+        titleImage,
+        titleImageAlt,
         contentSerbian,
         contentFinnish,
         category,

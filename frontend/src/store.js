@@ -4,6 +4,7 @@ import {
   articleListReducer,
   articleDetailsReducer,
   articleCreateReducer,
+  categoryListReducer,
 } from "./reducers/articleReducers";
 import { userSigninReducer } from "./reducers/userReducers";
 
@@ -16,6 +17,7 @@ const initialState = {
 };
 const reducer = combineReducers({
   articleList: articleListReducer,
+  categoryList: categoryListReducer,
   articleDetails: articleDetailsReducer,
   articleCreate: articleCreateReducer,
   userSignin: userSigninReducer,
