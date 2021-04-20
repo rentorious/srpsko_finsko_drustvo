@@ -15,6 +15,7 @@ export default function ArticleEditorScreen(props) {
   const articleCreate = useSelector((state) => state.articleCreate);
   const { error } = articleCreate;
   const [title, setTitle] = useState("");
+  const [titleFin, setTitleFin] = useState("");
   const [contentSrb, setContentSrb] = useState("Srpski");
   const [contentFin, setContentFin] = useState("Suomalainen");
   const [category, setCategory] = useState("article");
@@ -35,6 +36,7 @@ export default function ArticleEditorScreen(props) {
     ) {
       console.log(article);
       setTitle(article.title);
+      setTitleFin(article.titleFin);
       setContentSrb(article.contentSerbian);
       setContentFin(article.contentFinnish);
       setCategory(article.category);
@@ -47,6 +49,7 @@ export default function ArticleEditorScreen(props) {
 
     const updatedArticle = {
       title: title,
+      titleFin: titleFin,
       contentFinnish: contentFin,
       contentSerbian: contentSrb,
       category: category,
@@ -65,6 +68,7 @@ export default function ArticleEditorScreen(props) {
   const onChangeSerbian = (value) => setContentSrb(value);
   const onChangeFinnish = (value) => setContentFin(value);
   const onChangeTitle = (e) => setTitle(e.target.value);
+  const onChangeTitleFin = (e) => setTitleFin(e.target.value);
 
   // Image upload
   const [loadingUpload, setLoadingUpload] = useState(false);
@@ -103,14 +107,27 @@ export default function ArticleEditorScreen(props) {
         <div className="card">
           <form className="form editor-container" onSubmit={createHandler}>
             <div className="input-group">
-              <label htmlFor="Title">Title:</label>
+              <label htmlFor="titleSrb">Serbian Title:</label>
               <input
                 className="editor-input"
                 type="text"
-                placeholder="Naslov"
-                name="title"
+                placeholder="Zadajte naslov"
+                name="titleSrb"
                 onChange={onChangeTitle}
                 value={title}
+                maxLength="120"
+                required
+              />
+            </div>
+            <div className="input-group">
+              <label htmlFor="titleFin">Finnish Title:</label>
+              <input
+                className="editor-input"
+                type="text"
+                placeholder="Syötä otsikko"
+                name="titleFin"
+                onChange={onChangeTitleFin}
+                value={titleFin}
                 maxLength="120"
                 required
               />

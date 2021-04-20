@@ -2,10 +2,15 @@ import express from "express";
 import Article from "../models/articleModel.js";
 import expressAsyncHandler from "express-async-handler";
 import slugify from "slugify";
-import { isAuth, isAdmin } from "../utils.js";
+import fs from "fs";
+import { promisify } from "util";
+
+import { isAuth, isAdmin, trimArticlesForCards } from "../utils.js";
 
 const articleRouter = express.Router();
+const unlinkAsync = promisify(fs.unlink);
 
+// DELETE ALL ARTICLES
 articleRouter.delete(
   "/",
   isAuth,
@@ -17,6 +22,7 @@ articleRouter.delete(
   })
 );
 
+// ALL ARTICLES OF A CATRGORY
 articleRouter.get(
   "/category/:category",
   expressAsyncHandler(async (req, res) => {
@@ -25,6 +31,7 @@ articleRouter.get(
   })
 );
 
+// CREATE NEW ARTICLE
 articleRouter.post(
   "/add",
   isAuth,
@@ -36,6 +43,7 @@ articleRouter.post(
       contentFinnish,
       category,
       titleImage,
+      titleFin,
     } = req.body.article;
     const slug = slugify(title);
     const titleImageAlt = `${title} ${category} title image.`;
@@ -46,6 +54,7 @@ articleRouter.post(
     } else {
       const newArticle = new Article({
         title,
+        titleFin,
         titleImage,
         titleImageAlt,
         contentSerbian,
@@ -62,22 +71,30 @@ articleRouter.post(
   })
 );
 
+// GET ALL ARTICLE CARD DATA
 articleRouter.get(
   "/",
   expressAsyncHandler(async (req, res) => {
-    const articles = await Article.find({});
-    res.send(articles);
+    try {
+      const articles = await Article.find({}).sort({ createdAt: "desc" });
+      const cardData = trimArticlesForCards(articles);
+      res.send(cardData);
+    } catch (err) {
+      console.log(err);
+      res.status(500).send({ err });
+    }
   })
 );
 
 articleRouter.get(
-  "/:slug",
+  "/:slug/",
   expressAsyncHandler(async (req, res) => {
     const article = await Article.findOne({ slug: req.params.slug });
+    console.log(article);
     if (article) {
       res.send(article);
-    } else {
       res.status(404).send({ message: "Article Not Found" });
+    } else {
     }
   })
 );
@@ -91,10 +108,11 @@ articleRouter.put(
     const newArticle = req.body.article;
     if (article) {
       article.title = newArticle.title;
+      article.titleFin = newArticle.titleFin;
       // TODO: Remove previous image
+      // await unlinkAsync(article.titleImage);
       article.titleImage = newArticle.titleImage;
       article.titleImageAlt = `${newArticle.title} ${newArticle.category} title image.`;
-      // NOTE: Should I change the slug as well
       article.contentSerbian = newArticle.contentSerbian;
       article.contentFinnish = newArticle.contentFinnish;
       article.category = newArticle.category;

@@ -23,8 +23,9 @@ export const listArticles = () => async (dispatch) => {
     type: ARTICLE_LIST_REQUEST,
   });
   try {
-    const { data } = await Axios.get("/api/articles/");
+    const { data } = await Axios.get(`/api/articles/`);
     for (let article of data) article.date = parseTimestamp(article.createdAt);
+    console.log(data);
     dispatch({ type: ARTICLE_LIST_SUCCESS, payload: data });
   } catch (error) {
     dispatch({ type: ARTICLE_LIST_FAIL, payload: error.message });

@@ -10,6 +10,7 @@ import AdminRoute from "./components/AdminRoute";
 import Nav from "./components/Nav";
 import LanguagePicker from "./components/LanguagePicker";
 import CategoryScreen from "./screens/CategoryScreen";
+import { LanguageProvider } from "./containers/Language";
 
 function App() {
   const userSignin = useSelector((state) => state.userSignin);
@@ -22,32 +23,41 @@ function App() {
   };
 
   return (
-    <BrowserRouter>
-      {userInfo && userInfo.isAdmin && (
-        <AdminSidebar currentArticle={currentArticle} />
-      )}
-      <LanguagePicker />
-      <Nav />
-      <Route path="/" component={HomeScreen} exact />
-      <Route
-        path="/articles/article/:slug"
-        render={(props) => (
-          <FullArticleScreen
-            {...props}
-            setCurrentArticle={setCurrentArticle}
-            onLeave={clearCurrentArticle}
-          />
+    <LanguageProvider>
+      <BrowserRouter>
+        {userInfo && userInfo.isAdmin && (
+          <AdminSidebar currentArticle={currentArticle} />
         )}
-        exact
-      />
-      <Route path="/articles/category/:category/" component={CategoryScreen} />
-      <AdminRoute path="/articles/new" component={ArticleEditorScreen} exact />
-      <AdminRoute
-        path="/articles/edit/:slug/"
-        component={ArticleEditorScreen}
-      />
-      <Route path="/signin" component={SigninScreen} />
-    </BrowserRouter>
+        <LanguagePicker />
+        <Nav />
+        <Route path="/" component={HomeScreen} exact />
+        <Route
+          path="/articles/article/:slug"
+          render={(props) => (
+            <FullArticleScreen
+              {...props}
+              setCurrentArticle={setCurrentArticle}
+              onLeave={clearCurrentArticle}
+            />
+          )}
+          exact
+        />
+        <Route
+          path="/articles/category/:category/"
+          component={CategoryScreen}
+        />
+        <AdminRoute
+          path="/articles/new"
+          component={ArticleEditorScreen}
+          exact
+        />
+        <AdminRoute
+          path="/articles/edit/:slug/"
+          component={ArticleEditorScreen}
+        />
+        <Route path="/signin" component={SigninScreen} />
+      </BrowserRouter>
+    </LanguageProvider>
   );
 }
 

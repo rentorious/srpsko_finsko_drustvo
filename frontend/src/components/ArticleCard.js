@@ -1,8 +1,38 @@
-import React from "react";
-import { stripHtml } from "string-strip-html";
+import React, { useContext, useEffect, useMemo, useState } from "react";
+import { LanguageContext } from "../containers/Language";
 
 export default function ArticleCard(props) {
   const { article } = props;
+  const { userLanguage } = useContext(LanguageContext);
+  const [card, setCard] = useState({
+    title: "",
+    short: "",
+    readMore: "",
+  });
+
+  useMemo(() => {
+    if (userLanguage === "srb") {
+      setCard((card) => ({
+        ...card,
+        title: article.title,
+        short: article.contentSerbian,
+        readMore: " ...detaljnije",
+      }));
+    } else {
+      setCard((card) => ({
+        ...card,
+        title: article.titleFin,
+        short: article.contentFinnish,
+        readMore: " ...lue lisää",
+      }));
+    }
+  }, [
+    userLanguage,
+    article.contentSerbian,
+    article.title,
+    article.titleFin,
+    article.contentFinnish,
+  ]);
 
   return (
     <div className="card">
@@ -17,11 +47,11 @@ export default function ArticleCard(props) {
       </div>
       <div className="description">
         <div className="date date-text">{article.date} </div>
-        <h2>{article.title}</h2>
+        <h2>{card.title}</h2>
         <div className="short">
-          {stripHtml(article.contentSerbian).result.substring(0, 100)}
+          {card.short}
           <a href={`/articles/article/${article.slug}`}>
-            <span className="learnMore">...detaljnije</span>
+            <span className="learnMore">{card.readMore}</span>
           </a>
         </div>
         <div className="footer">

@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useContext, useEffect } from "react";
 import ArticleCard from "../components/ArticleCard";
 import LoadingBox from "../components/LoadingBox";
 import MessageBox from "../components/MessageBox";
@@ -26,7 +26,7 @@ export default function HomeScreen() {
             {articles[0] && <ArticleCard article={articles[0]} />}
           </header>
           <main>
-            {articles.map((article) => (
+            {articles.slice(1).map((article) => (
               <ArticleCard key={article.slug} article={article} />
             ))}
           </main>

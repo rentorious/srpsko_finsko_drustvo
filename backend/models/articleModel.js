@@ -3,6 +3,7 @@ import mongoose from "mongoose";
 const articleSchema = new mongoose.Schema(
   {
     title: { type: String, required: true },
+    titleFin: { type: String, default: "Finski naslov" },
     titleImage: { type: String, requred: true },
     titleImageAlt: { type: String, required: true },
     slug: { type: String, required: true, unique: true },

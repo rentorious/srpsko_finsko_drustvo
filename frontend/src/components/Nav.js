@@ -1,6 +1,9 @@
-import React from "react";
+import React, { useContext } from "react";
+import { LanguageContext } from "../containers/Language";
 
 export default function Nav() {
+  const { dictionary } = useContext(LanguageContext);
+
   return (
     <div>
       <nav>
@@ -15,16 +18,16 @@ export default function Nav() {
         </div>
         <div className="navigation">
           <a href="/" className="navItem active">
-            Naslovna
+            {dictionary.nav.home}
           </a>
           <a href="/about" className="navItem">
-            O nama
+            {dictionary.nav.about}
           </a>
           <a href="/postanite-clan" className="navItem">
-            Postanite član
+            {dictionary.nav.joinUs}
           </a>
           <a href="/pisite-nam" className="navItem">
-            Pišite nam
+            {dictionary.nav.contact}
           </a>
           <div className="toggle">
             <i className="fas fa-bars"></i>

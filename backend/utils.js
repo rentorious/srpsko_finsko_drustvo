@@ -1,4 +1,12 @@
 import jwt from "jsonwebtoken";
+import { stripHtml } from "string-strip-html";
+
+export const languageOptions = {
+  srb: "srp",
+  fin: "fin",
+};
+
+export const CARD_SHORT_LIMIT = 110;
 
 export const generateToken = (user) => {
   return jwt.sign(
@@ -42,4 +50,19 @@ export const isAdmin = (req, res, next) => {
   } else {
     res.status(401).send({ message: "Invalid Admin Token" });
   }
+};
+
+export const trimArticlesForCards = (articles) => {
+  for (let article of articles) {
+    article.contentSerbian = stripHtml(article.contentSerbian).result.substring(
+      0,
+      CARD_SHORT_LIMIT
+    );
+    article.contentFinnish = stripHtml(article.contentFinnish).result.substring(
+      0,
+      CARD_SHORT_LIMIT
+    );
+  }
+
+  return articles;
 };
