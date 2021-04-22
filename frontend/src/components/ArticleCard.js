@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useMemo, useState } from "react";
+import React, { useContext, useMemo, useState } from "react";
 import { LanguageContext } from "../containers/Language";
 
 export default function ArticleCard(props) {

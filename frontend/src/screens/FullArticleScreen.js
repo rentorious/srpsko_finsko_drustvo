@@ -1,10 +1,4 @@
-import React, {
-  useContext,
-  useEffect,
-  useLayoutEffect,
-  useMemo,
-  useState,
-} from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { detailsArticle } from "../actions/articleActions";
 import LoadingBox from "../components/LoadingBox";
@@ -77,11 +71,12 @@ export default function FullArticleScreen(props) {
                 <h1>{languageArticle.title}</h1>
 
                 <div className="footer">
-                  <a href="/share">
-                    <i className="fas fa-share-alt"></i>
-                  </a>
-                  <a href="/print">
-                    <i className="fas fa-print"></i>
+                  {/* TODO: ADD PRINT AND SHARE OPTIONS */}
+                  <a
+                    className="card-category"
+                    href={`/articles/category/${article.category}`}
+                  >
+                    {article.category}
                   </a>
                 </div>
               </div>
