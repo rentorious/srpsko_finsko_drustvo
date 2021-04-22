@@ -1,8 +1,15 @@
-import React, { useEffect } from "react";
+import React, {
+  useContext,
+  useEffect,
+  useLayoutEffect,
+  useMemo,
+  useState,
+} from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { detailsArticle } from "../actions/articleActions";
 import LoadingBox from "../components/LoadingBox";
 import MessageBox from "../components/MessageBox";
+import { LanguageContext } from "../containers/Language";
 
 export default function FullArticleScreen(props) {
   const dispatch = useDispatch();
@@ -10,6 +17,11 @@ export default function FullArticleScreen(props) {
   const articleDetails = useSelector((state) => state.articleDetails);
   const { loading, error, article } = articleDetails;
   const { setCurrentArticle } = props;
+  const { userLanguage } = useContext(LanguageContext);
+  const [languageArticle, setLanguageArticle] = useState({
+    title: "",
+    content: "",
+  });
 
   useEffect(() => {
     setCurrentArticle(slug);
@@ -18,6 +30,29 @@ export default function FullArticleScreen(props) {
   useEffect(() => {
     dispatch(detailsArticle(slug));
   }, [dispatch, slug]);
+
+  useEffect(() => {
+    if (
+      article &&
+      !(Object.keys(article).length === 0 && article.constructor === Object)
+    ) {
+      console.log("MEMO");
+      console.log(article);
+      if (userLanguage === "srb") {
+        setLanguageArticle((full) => ({
+          ...full,
+          title: article.title,
+          content: article.contentSerbian,
+        }));
+      } else {
+        setLanguageArticle((card) => ({
+          ...card,
+          content: article.contentFinnish,
+          title: article.titleFin,
+        }));
+      }
+    }
+  }, [userLanguage, article]);
 
   return (
     <div>
@@ -39,7 +74,7 @@ export default function FullArticleScreen(props) {
               </div>
               <div className="description">
                 <div className="date-text">{article.date}</div>
-                <h1>{article.title}</h1>
+                <h1>{languageArticle.title}</h1>
 
                 <div className="footer">
                   <a href="/share">
@@ -54,7 +89,7 @@ export default function FullArticleScreen(props) {
           </header>
           <main
             className="detail"
-            dangerouslySetInnerHTML={{ __html: article.contentSerbian }}
+            dangerouslySetInnerHTML={{ __html: languageArticle.content }}
           ></main>
         </div>
       )}

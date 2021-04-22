@@ -90,11 +90,10 @@ articleRouter.get(
   "/:slug/",
   expressAsyncHandler(async (req, res) => {
     const article = await Article.findOne({ slug: req.params.slug });
-    console.log(article);
     if (article) {
       res.send(article);
-      res.status(404).send({ message: "Article Not Found" });
     } else {
+      res.status(404).send({ message: "Article Not Found" });
     }
   })
 );
